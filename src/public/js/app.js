@@ -21012,7 +21012,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 var routes = [{
   path: "/",
-  component: _pages_PhotoList_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _pages_PhotoList_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+  meta: {
+    guestOnly: true
+  }
 }, {
   path: "/login",
   component: _pages_Login_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -21029,6 +21032,27 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
   // ★ 追加
   routes: routes
+});
+router.beforeEach(function (to, from, next) {
+  if (to.matched.some(function (record) {
+    return record.meta.authOnly;
+  })) {
+    if (!_store__WEBPACK_IMPORTED_MODULE_4__["default"].getters["auth/check"]) {
+      next("/login");
+    } else {
+      next();
+    }
+  } else if (to.matched.some(function (record) {
+    return record.meta.guestOnly;
+  })) {
+    if (!_store__WEBPACK_IMPORTED_MODULE_4__["default"].getters["auth/check"]) {
+      next("/login");
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 }); // VueRouterインスタンスをエクスポートする
 // app.jsでインポートするため
 

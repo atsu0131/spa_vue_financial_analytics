@@ -15,7 +15,8 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: "/",
-        component: PhotoList
+        component: PhotoList,
+        meta: { guestOnly: true }
     },
     {
         path: "/login",
@@ -34,6 +35,24 @@ const routes = [
 const router = new VueRouter({
     mode: "history", // ★ 追加
     routes
+});
+
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.authOnly)) {
+        if (!store.getters["auth/check"]) {
+            next("/login");
+        } else {
+            next();
+        }
+    } else if (to.matched.some(record => record.meta.guestOnly)) {
+        if (!store.getters["auth/check"]) {
+            next("/login");
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
 });
 
 // VueRouterインスタンスをエクスポートする
