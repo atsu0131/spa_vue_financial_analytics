@@ -14,6 +14,8 @@ import UserCreate from "./pages/UserCreate.vue";
 
 import UserEdit from "./pages/UserEdit.vue";
 
+import SystemError from "./pages/errors/System.vue";
+
 import store from "./store";
 
 // VueRouterプラグインを使用する
@@ -72,6 +74,10 @@ const routes = [
         path: "/user/:id/edit",
         name: "user_edit",
         component: UserEdit
+    },
+    {
+        path: "/500",
+        component: SystemError
     }
 ];
 

@@ -18,6 +18,23 @@
         </ul>
         <div class="panel" v-show="tab === 1">
             <form class="form" @submit.prevent="login">
+                <div v-if="registerErrors" class="errors">
+                    <ul v-if="registerErrors.name">
+                        <li v-for="msg in registerErrors.name" :key="msg">
+                            {{ msg }}
+                        </li>
+                    </ul>
+                    <ul v-if="registerErrors.email">
+                        <li v-for="msg in registerErrors.email" :key="msg">
+                            {{ msg }}
+                        </li>
+                    </ul>
+                    <ul v-if="registerErrors.password">
+                        <li v-for="msg in registerErrors.password" :key="msg">
+                            {{ msg }}
+                        </li>
+                    </ul>
+                </div>
                 <label for="login-email">Email</label>
                 <input
                     type="text"
@@ -80,6 +97,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
     data() {
         return {
@@ -96,6 +114,19 @@ export default {
             }
         };
     },
+    // computed: {
+    //     apiStatus() {
+    //         return this.$store.state.auth.apiStatus;
+    //     },
+    //     loginErrors() {
+    //         return this.$store.state.auth.loginErrorMessages;
+    //     }
+    // },
+    computed: mapState({
+        apiStatus: state => state.auth.apiStatus,
+        loginErrors: state => state.auth.loginErrorMessages,
+        registerErrors: state => state.auth.registerErrorMessages
+    }),
     methods: {
         async register() {
             // authストアのresigterアクションを呼び出す
@@ -108,8 +139,14 @@ export default {
             // authストアのloginアクションを呼び出す
             await this.$store.dispatch("auth/login", this.loginForm);
 
-            // トップページに移動する
-            this.$router.push("/");
+            if (this.apiStatus) {
+                // トップページに移動する
+                this.$router.push("/");
+            }
+        },
+        clearError() {
+            this.$store.commit("auth/setLoginErrorMessages", null);
+            this.$store.commit("auth/setRegisterErrorMessages", null);
         }
     }
 };
