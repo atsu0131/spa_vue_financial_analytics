@@ -28,3 +28,33 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 // ログインユーザー
 Route::get('/user', fn() => Auth::user())->name('user');
+
+Route::get('/users',function (Request $request) {
+	
+	$users = App\User::all();
+	
+	return response()->json(['users' => $users]);
+
+});
+
+Route::get('/users/{user}', function(App\User $user){
+
+	return response()->json(['user' => $user]);
+
+});
+
+Route::delete('/users/{user}', function(App\User $user){
+
+	$user->delete();
+
+	return response()->json(['message' => 'delete successfully']);
+
+});
+
+Route::post('/users', function(Request $request){
+
+	$user = App\User::create($request->user);
+
+	return response()->json(['user' => $user]);
+
+});
