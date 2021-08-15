@@ -15,6 +15,7 @@ import UserCreate from "./pages/UserCreate.vue";
 import UserEdit from "./pages/UserEdit.vue";
 
 import SystemError from "./pages/errors/System.vue";
+import Dashboard from "./pages/Dashboard.vue";
 
 import store from "./store";
 
@@ -74,6 +75,11 @@ const routes = [
         path: "/user/:id/edit",
         name: "user_edit",
         component: UserEdit
+    },
+    {
+        path: "/dashboard",
+        name: "dashboard",
+        component: Dashboard
     },
     {
         path: "/500",

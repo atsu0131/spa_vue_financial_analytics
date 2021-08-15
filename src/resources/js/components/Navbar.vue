@@ -21,7 +21,13 @@
         </div>
     </nav>
 </template>
+
+<style>
+
+</style>
+
 <script>
+import '../../../public/css/app.css'
 export default {
     computed: {
         isLogin() {
