@@ -1,11 +1,17 @@
 <template>
     <div>
         <h1>残高推移</h1>
-        
+        <div class="small">
+            <chart></chart>
+        </div>
     </div>
 </template>
 <script>
+import Chart from "../components/Chart";
 export default {
+    components: {
+        Chart
+    },
     data() {
         return {
             users: []
@@ -33,3 +39,8 @@ export default {
     }
 };
 </script>
+<style>
+.small {
+    max-width: 600px;
+}
+</style>
