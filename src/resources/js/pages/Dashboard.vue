@@ -36,11 +36,31 @@ export default {
             .catch(error => {
                 console.log(error);
             });
+    },
+    computed: {
+        myStyles() {
+            return {
+                height: `300px`,
+                width: `800px`,
+                position: "relative"
+            };
+        }
     }
 };
 </script>
 <style>
-.small {
-    max-width: 600px;
+.container {
+    height: 400px;
 }
+.small {
+    position: relative;
+    height: 200px;
+    width: 1000px;
+}
+/*
+canvas {
+    width: 600px !important;
+    height: 600px !important;
+}
+*/
 </style>
