@@ -2041,11 +2041,10 @@ var setDegreeCelsius = function setDegreeCelsius(value, index, values) {
         labels: ["January", "February", "March", "April", "May", "June"],
         datasets: [_defineProperty({
           label: "Bar Dataset",
-          borderWidth: 5,
-          borderheight: 5,
-          data: [50000, 20000, 30000, 40000, 50000, 30000],
-          backgroundColor: ["rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)"],
-          borderColor: ["rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)"]
+          borderWidth: 1,
+          data: [50000, 20000, 30000, 40000, 50000, 30000, 30000, 30000, 30000, 30000, 30000, 30000],
+          backgroundColor: ["rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)"],
+          borderColor: ["rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)", "rgba(54, 162, 235, 1)"]
         }, "borderWidth", 1) // {
         //     label: "Line Dataset",
         //     data: [10, 50, 20, 30, 30, 40],
