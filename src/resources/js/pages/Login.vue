@@ -148,6 +148,15 @@ export default {
             this.$store.commit("auth/setLoginErrorMessages", null);
             this.$store.commit("auth/setRegisterErrorMessages", null);
         }
+    },
+    mounted: function() {
+        document.title = "ログイン画面";
+        // document
+        //     .querySelector("meta[property='description']")
+        //     .setAttribute(
+        //         "content",
+        //         "TODOアプリの一覧画面です。TODOのリストを確認できます。"
+        //     );
     }
 };
 </script>
