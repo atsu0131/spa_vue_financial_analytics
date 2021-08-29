@@ -21,7 +21,9 @@
         </div>
     </nav>
 </template>
+
 <script>
+import "../../../public/css/app.css";
 export default {
     computed: {
         isLogin() {
@@ -33,3 +35,9 @@ export default {
     }
 };
 </script>
+
+<style lang="scss">
+.navbar {
+    background-color: #5fc15b;
+}
+</style>

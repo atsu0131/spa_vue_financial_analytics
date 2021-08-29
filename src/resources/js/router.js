@@ -5,6 +5,18 @@ import VueRouter from "vue-router";
 import PhotoList from "./pages/PhotoList.vue";
 import Login from "./pages/Login.vue";
 
+import Home from "./pages/Home.vue";
+import About from "./pages/About.vue";
+import NotFound from "./pages/NotFound.vue";
+import Users from "./pages/User.vue";
+import UserDetail from "./pages/UserDetail.vue";
+import UserCreate from "./pages/UserCreate.vue";
+
+import UserEdit from "./pages/UserEdit.vue";
+
+import SystemError from "./pages/errors/System.vue";
+import Dashboard from "./pages/Dashboard.vue";
+
 import store from "./store";
 
 // VueRouterプラグインを使用する
@@ -28,6 +40,50 @@ const routes = [
                 next();
             }
         }
+    },
+    {
+        path: "*",
+        component: NotFound
+    },
+    {
+        path: "/home",
+        name: "home",
+        component: Home
+    },
+    {
+        path: "/about",
+        name: "about",
+        component: About
+    },
+    {
+        path: "/users",
+        name: "users",
+        component: Users
+        // meta: { guestOnly: true }
+    },
+    {
+        path: "/user/create",
+        name: "user_create",
+        component: UserCreate
+    },
+    {
+        path: "/user/:id",
+        name: "user_detail",
+        component: UserDetail
+    },
+    {
+        path: "/user/:id/edit",
+        name: "user_edit",
+        component: UserEdit
+    },
+    {
+        path: "/dashboard",
+        name: "dashboard",
+        component: Dashboard
+    },
+    {
+        path: "/500",
+        component: SystemError
     }
 ];
 
